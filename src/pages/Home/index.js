@@ -53,3 +53,15 @@ export default function Home() {
     </Container>
   );
 }
+
+fetch('http://localhost:3001/contacts')
+  .then(async (response) => {
+    const json = await response.json();
+    console.log('reponse', response);
+    json.forEach((contact) => {
+      console.log(contact.name);
+    });
+  })
+  .catch((error) => {
+    console.log('erro', error);
+  });
